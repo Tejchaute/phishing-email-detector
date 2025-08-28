@@ -35,7 +35,7 @@ The dataset used for this project is located in the `data` directory as `merged_
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/Tejchaute/phishing-email-detector
    cd phishing-email-detector
    ```
 
