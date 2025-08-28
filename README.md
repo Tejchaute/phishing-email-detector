@@ -12,6 +12,7 @@ phishing-email-detector
 │   ├── main.py                # Entry point of the application
 │   ├── preprocessing.py       # Data cleaning and preprocessing functions
 │   ├── feature_extraction.py  # Functions for feature extraction
+|   ├── feature_importance.py  # Functions for measure importance of features
 │   ├── model.py               # Machine learning model definition and training
 │   ├── predict.py             # Functions for making predictions
 │   └── utils.py               # Utility functions used across modules
