@@ -8,6 +8,8 @@ This project implements an advanced phishing email detection system using machin
 phishing-email-detector
 ├── data
 │   └── merged_cleaned_emails.csv          # Dataset containing email data with labels
+├── models
+    └── best_model.pkl         # Shows which model performs best
 ├── src
 │   ├── main.py                # Entry point of the application
 │   ├── preprocessing.py       # Data cleaning and preprocessing functions
