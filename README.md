@@ -1,64 +1,124 @@
-# Phishing Email Detector
+📧 Phishing Email Detector
 
-This project implements an advanced phishing email detection system using machine learning techniques. The model is trained on a dataset containing both phishing and non-phishing emails, utilizing various features extracted from the email content.
+A machine learning project to detect phishing emails using text preprocessing, feature extraction, and classification models. The system leverages datasets of spam and phishing emails, extracts linguistic and metadata-based features, and predicts whether an email is phishing or legitimate.
 
-## Project Structure
+📂 Project Structure
+Phishing-Email-Detector/
+│
+├── data/                        # Datasets used for training/testing
+│   ├── CEAS_08.csv
+│   ├── Nazario.csv
+│   ├── Nigerian_Fraud.csv
+│   ├── SpamAssasin.csv
+│   ├── merged_cleaned_emails.csv
+│   └── features.csv
+│
+├── models/                      # Saved models & preprocessing files
+│   ├── best_model.pkl
+│   ├── randomForest_model.pkl
+│   ├── vectorizer.pkl
+│   └── feature_columns.pkl
+│
+├── src/                         # Source code
+│   ├── feature_extraction.py    # Extracts features from raw emails
+│   ├── feature_importance.py    # Analyzes feature importance
+│   ├── preprocessing.py         # Data cleaning & preprocessing
+│   ├── model.py                 # Model training & saving
+│   ├── predict.py               # Prediction script
+│   └── main.py                  # Entry point script
+│
+├── requirements.txt             # Python dependencies
+├── README.md                    # Project documentation
+└── .gitattributes               # Git configuration
 
-```
-phishing-email-detector
-├── data
-│   └── merged_cleaned_emails.csv          # Dataset containing email data with labels
-├── models
-    └── best_model.pkl         # Shows which model performs best
-├── src
-│   ├── main.py                # Entry point of the application
-│   ├── preprocessing.py       # Data cleaning and preprocessing functions
-│   ├── feature_extraction.py  # Functions for feature extraction
-|   ├── feature_importance.py  # Functions for measure importance of features
-│   ├── model.py               # Machine learning model definition and training
-│   ├── predict.py             # Functions for making predictions
-│   └── utils.py               # Utility functions used across modules
-├── requirements.txt           # List of project dependencies
-└── README.md                  # Project documentation
-```
+⚙️ Installation
 
-## Dataset
+1. Clone this repository:
 
-The dataset used for this project is located in the `data` directory as `merged_cleaned_emails.csv`. It includes the following features:
-- **Sender**: The email address of the sender.
-- **Receiver**: The email address of the receiver.
-- **Date**: The date the email was sent.
-- **Subject**: The subject line of the email.
-- **Body**: The content of the email.
-- **URLs**: Any URLs present in the email.
-- **Label**: Indicates whether the email is phishing (1) or non-phishing (0).
-
-## Setup Instructions
-
-1. Clone the repository:
-   ```
    git clone https://github.com/Tejchaute/phishing-email-detector
    cd phishing-email-detector
-   ```
 
-2. Install the required dependencies:
-   ```
+
+2. Create a virtual environment:
+
+   python -m venv venv
+   source venv/bin/activate   # For Linux/Mac
+   venv\Scripts\activate      # For Windows
+
+
+3. Install dependencies:
+
    pip install -r requirements.txt
-   ```
 
-## Usage
+🚀 Usage
+1. Train the Model
 
-To run the phishing email detection system, execute the following command:
-```
-python src/main.py
-```
+Run the training pipeline (preprocessing, feature extraction, training):
 
-This will initiate the workflow of loading the dataset, preprocessing the data, extracting features, training the model, and making predictions.
+   python src/model.py
 
-## Contributing
+2. Predict Phishing Emails
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+You can test the model interactively:
 
-## License
+   python src/predict.py
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+
+Example input:
+
+   === Email Phishing Detector ===
+   Enter email subject: Urgent! Verify your account
+   Enter email body: Your account has been suspended. Click here to confirm.
+   Enter sender email: support@paypal.com
+
+
+Output:
+
+   Prediction: 🚨 Phishing Email Detected!
+
+3. Analyze Feature Importance
+   python src/feature_importance.py
+
+📊 Datasets Used
+
+CEAS 2008 Spam Filter Challenge Dataset
+
+Nazario Phishing Corpus
+
+Nigerian Fraud Emails Dataset
+
+SpamAssassin Corpus
+
+Custom merged dataset (merged_cleaned_emails.csv)
+
+🧠 Models
+
+Random Forest Classifier (primary model)
+
+Vectorization via TF-IDF
+
+Best model saved as best_model.pkl
+
+📌 Features Extracted
+
+Text-based features (word counts, special characters, suspicious keywords)
+
+Email header features (sender address, domain)
+
+Statistical & NLP-based features
+
+✅ Future Improvements
+
+Add deep learning models (LSTM, BERT)
+
+Deploy as a web API or Flask app
+
+Real-time email classification
+
+🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+📜 License
+
+This project is licensed under the MIT License.

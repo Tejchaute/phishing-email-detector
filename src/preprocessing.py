@@ -1,6 +1,10 @@
 import pandas as pd
 import re
 
+def clean_single_email(text):
+    text = str(text).strip().lower()
+    return text
+
 def clean_email_data(df):
     # Drop duplicates
     df = df.drop_duplicates(subset=['subject', 'body'])
@@ -57,9 +61,11 @@ def merge_and_clean_csv_files(file_paths, output_path):
     merged_df.to_csv(output_path, index=False, encoding='utf-8')
     print(f"Merged and cleaned CSV saved to {output_path}")
 
-file_list = [r'D:\phishing-email-detector\data\CEAS_08.csv',
-    r'D:\phishing-email-detector\data\Nigerian_Fraud.csv',
-    r'D:\phishing-email-detector\data\SpamAssasin.csv',
-    r'D:\phishing-email-detector\data\Nazario.csv'
-]
-merge_and_clean_csv_files(file_list, r'D:\phishing-email-detector\data\merged_cleaned_emails.csv')
+if __name__ == "__main__":
+    file_list = [
+        r'D:\phishing-email-detector\data\CEAS_08.csv',
+        r'D:\phishing-email-detector\data\Nigerian_Fraud.csv',
+        r'D:\phishing-email-detector\data\SpamAssasin.csv',
+        r'D:\phishing-email-detector\data\Nazario.csv'
+    ]
+    merge_and_clean_csv_files(file_list, r'D:\phishing-email-detector\data\merged_cleaned_emails.csv')
